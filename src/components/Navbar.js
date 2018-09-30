@@ -1,9 +1,13 @@
 //functional component
 import React from 'react';
-import {Link, NavLink } from 'react-router-dom';
-// import {Link} from 'react-router-dom';
+import {Link, NavLink, withRouter } from 'react-router-dom';
 
-const Navbar = () => {
+
+const Navbar = (props) => {
+    // console.log(props)
+    setTimeout(() => {
+        props.history.push('/about')
+    }, 2000)
     return (
         <div className="nav-wrapper red darken-3">
             <div className="container">
@@ -18,4 +22,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default withRouter(Navbar)
