@@ -1,4 +1,5 @@
 import React from 'react'
+import Rainbow from '../hoc/Rainbow'
 //functional component
 //no states
 //create a function , call it Home, 
@@ -12,4 +13,4 @@ const About = () => {
     )
 }
 
-export default About
+export default Rainbow(About)
