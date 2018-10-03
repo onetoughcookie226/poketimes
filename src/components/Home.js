@@ -12,9 +12,9 @@ class Home extends Component {
   }
   componentDidMount (){
     //This going to get some data
-    axios
+    axios.get('https://jsonplaceholder.typicode.com/posts')
     //this action returns a poromise
-    .get('https://jsonplaceholder.typicode.com/posts')
+   
     .then(res => {
       console.log(res)
       this.setState({
@@ -24,20 +24,24 @@ class Home extends Component {
   }
 
   render() {
+    //distructuring, grabing the post property from the state
     const {posts} = this.state;
+    //cycle through the posts if there is anything in there
     const postList = posts.length ? (
+      //fire the function for each post
       posts.map (post => {
         return (
           <div className="post card" key={post.id}>
             <div className="card-content">
               <span className="card-title">{post.title}</span>
+              //outputing jsx
               <p>{post.body}</p>
             </div>
           </div>
         )
       })
     ) : (
-      <div className="ceneter"></div>
+      <div className="ceneter">No posts yet</div>
     )
     return (
       <div className="container">
