@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 //functional component
 //no states
 //create a function , call it Home, 
@@ -33,7 +34,9 @@ class Home extends Component {
         return (
           <div className="post card" key={post.id}>
             <div className="card-content">
+            <Link to={'/' + post.id}>
               <span className="card-title">{post.title}</span>
+            </Link> 
               //outputing jsx
               <p>{post.body}</p>
             </div>
